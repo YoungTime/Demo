@@ -47,6 +47,7 @@ public class MeshView extends View {
         float bmWidth = mBitmap.getWidth();
         float bmHeight = mBitmap.getHeight();
 
+        /**找出每个交点的坐标 */
         for (int i = 0; i < HEIGHT + 1; i++) {
             float fy = bmHeight * i/HEIGHT;
             for (int j = 0; j < WIDTH + 1; j++) {
@@ -65,13 +66,19 @@ public class MeshView extends View {
         for (int i = 0; i < HEIGHT + 1; i++) {
             for (int j = 0; j < WIDTH + 1; j++) {
                 verts[(i * ( WIDTH+1 ) + j) * 2] +=0;
+                /**两个float不可以少,不然得不到效果,k*2*Math.PI为每次重画的转移量,为周期性 */
                 float offSetY = (float) Math.sin((float)j/WIDTH*2*Math.PI + k*2*Math.PI);
                 verts[(i * ( WIDTH+1 ) + j) * 2 +1] =
+                        /**纵坐标为转移量 */
                         orig[(i * ( WIDTH+1 ) + j) * 2 +1] + offSetY*50;
             }
         }
+        /**每次重画都改变k值 */
         k+=0.1f;
+
         canvas.drawBitmapMesh(mBitmap,WIDTH,HEIGHT,verts,0,null,0,null);
+
+        /**重画 */
         invalidate();
     }
 }

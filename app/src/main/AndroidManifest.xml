@@ -23,7 +23,12 @@
         <activity android:name=".image.deal.RoundActivity" />
         <activity android:name=".image.deal.BitmapShaderActivity" />
         <activity android:name=".image.deal.ReflectActivity" />
-        <activity android:name=".image.deal.MeshActivity"></activity>
+        <activity android:name=".image.deal.MeshActivity" />
+        <activity android:name=".animation.deal.AnimationMainActivity" />
+        <activity android:name=".animation.deal.StartAnimationActivity" />
+        <activity android:name=".animation.deal.SecondAnimationActivity" />
+        <activity android:name=".animation.deal.ValueAnimationActivity" />
+        <activity android:name=".animation.deal.AnimationOneActivity"/>
     </application>
 
 </manifest>

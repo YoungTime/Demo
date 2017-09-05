@@ -40,31 +40,38 @@ public class TopBar extends RelativeLayout {
     private LayoutParams titleParams;
     private topClickListener listener;
 
-    /**自定义一个接口设置自定义View的点击事件*/
-    public interface topClickListener{
+    /**
+     * 自定义一个接口设置自定义View的点击事件
+     */
+    public interface topClickListener {
         public void leftClick();
+
         public void rightClick();
     }
 
-    /**打开点击事件的方法*/
-    public void setOnTopBarClickListener(topClickListener listener){
+    /**
+     * 打开点击事件的方法
+     */
+    public void setOnTopBarClickListener(topClickListener listener) {
         this.listener = listener;
     }
 
-    /**添加自定义属性需要AttributeSet属性 */
+    /**
+     * 添加自定义属性需要AttributeSet属性
+     */
     public TopBar(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         /**扫描atts.xml里面的所有自定义属性 */
-        TypedArray array =context.obtainStyledAttributes(attrs, R.styleable.TopBar);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.TopBar);
 
         /**获取所有自定义属性并提出 */
-        leftTextColor = array.getColor(R.styleable.TopBar_leftTextColor,0);
-        leftTextBackground =array.getDrawable(R.styleable.TopBar_leftBackGround);
+        leftTextColor = array.getColor(R.styleable.TopBar_leftTextColor, 0);
+        leftTextBackground = array.getDrawable(R.styleable.TopBar_leftBackGround);
         leftText = array.getString(R.styleable.TopBar_leftText);
 
         rightTextColor = array.getColor(R.styleable.TopBar_rightTextColor, 0);
-        rightTextBackground =array.getDrawable(R.styleable.TopBar_rightBackGround);
+        rightTextBackground = array.getDrawable(R.styleable.TopBar_rightBackGround);
         rightText = array.getString(R.styleable.TopBar_rightText);
 
         titleText = array.getString(R.styleable.TopBar_title);
@@ -108,7 +115,7 @@ public class TopBar extends RelativeLayout {
         addView(rightButton, rightParams);
 
         titleParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        titleParams.addRule(RelativeLayout.CENTER_IN_PARENT,TRUE);
+        titleParams.addRule(RelativeLayout.CENTER_IN_PARENT, TRUE);
 
         addView(title, titleParams);
 
@@ -127,11 +134,13 @@ public class TopBar extends RelativeLayout {
         });
     }
 
-    /**静态方法控件是否显示 */
-    public void textIsVisable(Boolean flag){
-        if (flag){
+    /**
+     * 静态方法控件是否显示
+     */
+    public void textIsVisable(Boolean flag) {
+        if (flag) {
             title.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             title.setVisibility(View.GONE);
         }
     }

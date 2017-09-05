@@ -22,10 +22,11 @@
 
     </com.example.duzeming.demo.view.creat.TopBar>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hhhhh"/>
+        android:text="动画赏析"
+        android:onClick="btnAnimation"/>
 
 
 </LinearLayout>

@@ -5,11 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.duzeming.demo.animation.deal.AnimationMainActivity;
 import com.example.duzeming.demo.image.deal.SecondActivity;
 import com.example.duzeming.demo.image.deal.XiuXIuActivity;
 import com.example.duzeming.demo.view.creat.TopBar;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity{
 
     private TopBar topBar;
 
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         topBar.textIsVisable(false);
     }
 
-    @Override
-    public void onClick(View v) {
-
+    /**动画赏析 */
+    public void btnAnimation(View view){
+        startActivity(new Intent(this, AnimationMainActivity.class));
     }
 }
